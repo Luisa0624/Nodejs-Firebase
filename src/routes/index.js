@@ -1,5 +1,4 @@
 const {Router} = require('express');
-const { body } = require('express-validator');
 const router = Router();
 const admin = require ('firebase-admin');
 
@@ -19,6 +18,7 @@ router.get('/', (req, res) =>{
     });
     
 });
+
 //crear contacto
 router.post('/new-contact', (req, res) =>{
     const newContact = {
@@ -38,14 +38,23 @@ router.get('/delete-contact/:id', (req, res) =>{
 });
 
 //editar contacto
-router.put('edit-contact/:id', (req, res) => {
-    const actualizar = {
+router.get('/edit-contact/:id', (req, res) =>{
+    db.ref('contacts/'+ req.params.id).once('value', (snapshot) =>{
+        const data = snapshot.val();
+        res.render('edit-contact', {cont: data, id: req.params.id});
+    });
+});
+
+router.post('/edit/:id', (req, res) => {
+    db.ref('contacts/'+ req.params.id).update({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,
         phone: req.body.phone
-    };
-})
+    });
+    res.redirect('/');
+});
+
 
 
 module.exports = router;
