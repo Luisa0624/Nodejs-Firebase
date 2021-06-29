@@ -25,16 +25,16 @@
         <div class="card-footer">
             <form action="/new-contact" method="POST">
                 <div class="form-group">
-                    <input type="text" name="firstname" placeholder="Nombres" required class="form-control" autofocus>
+                    <input type="text"  name="firstname" placeholder="Nombres" required class="form-control" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="lastname" placeholder="Apellidos" class="form-control" required>
+                    <input type="text"  name="lastname" placeholder="Apellidos" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="email" placeholder="Email" class="form-control" required >
+                    <input type="email" name="email" placeholder="Email" class="form-control" required >
                 </div>
                 <div class="form-group">
-                    <input type="text" name="phone" placeholder="Telefono" class="form-control"  required>
+                    <input type="number" name="phone" placeholder="Telefono" class="form-control"  required pattern="[0-9]{8,10}">
                 </div>
                 <button class="btn btn-primary btn-block">
                     Agregar

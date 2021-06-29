@@ -5,3 +5,13 @@ body {
   position: absolute;
   background: linear-gradient(to bottom, #6e529d 0%,#d97b93 100%);
 }
+
+input:valid,
+textarea:valid {
+    background: rgb(179, 235, 179);
+}
+
+input:invalid,
+textarea:invalid {
+    background: rgb(235, 182, 182);
+}
